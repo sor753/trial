@@ -2,6 +2,13 @@ openapi: "3.0.0"
 info:
   title: Shopping API
   version: "1.0"
+
+tags:
+  - name: Family
+    description: Families Operation
+  - name: Income
+    description: Income Operation
+
 components:
   schemas:
     Family:
@@ -77,6 +84,8 @@ paths:
     description: The families catalog
     get:
       summary: Search families
+      tags:
+        - Family
       description: |
         Search families
         using a free query parameter
@@ -102,6 +111,8 @@ paths:
       summary: Add family
       description: |
         Add family's parameter
+      tags:
+        - Family
       requestBody:
         description: Family's information
         content:
@@ -116,6 +127,8 @@ paths:
       summary: Add family
       description: |
         Add family's parameter
+      tags:
+        - Family
       requestBody:
         description: Family's information
         content:
@@ -135,6 +148,8 @@ paths:
       summary: Get incomes
       description: |
         Get all incomes
+      tags:
+        - Income
       responses:
         "200":
           description: Income
@@ -149,6 +164,8 @@ paths:
       summary: Add income
       description: |
         Add income's parameter
+      tags:
+        - Income
       requestBody:
         description: Income's information
         content:
