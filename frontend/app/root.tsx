@@ -9,6 +9,11 @@ import {
 
 import type { Route } from './+types/root';
 import './app.css';
+import { Configuration } from './interface';
+
+export const apiConf = new Configuration({
+  basePath: 'http://localhost:3000',
+});
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

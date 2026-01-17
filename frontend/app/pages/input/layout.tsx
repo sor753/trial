@@ -1,7 +1,14 @@
 import { Outlet } from 'react-router';
 import type { Route } from './+types/page';
 import { useEffect, useState } from 'react';
-import { Configuration, FamilyApi, type Family } from '~/interface';
+import {
+  Configuration,
+  FamilyApi,
+  IncomeApi,
+  type Family,
+  type Income,
+} from '~/interface';
+import { apiConf } from '~/root';
 
 // export const clientLoader = async () => {
 // await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -13,25 +20,24 @@ import { Configuration, FamilyApi, type Family } from '~/interface';
 //   return data;
 // };
 
-const conf = new Configuration({
-  basePath: 'http://localhost:3000',
-});
-const familyApi = new FamilyApi(conf);
+const familyApi = new FamilyApi(apiConf);
+const incomeApi = new IncomeApi(apiConf);
 
 const Layout = ({}: Route.ComponentProps) => {
   const [families, setFamilies] = useState<Family[]>();
+  const [incomes, setIncomes] = useState<Income[]>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     (async () => {
+      setIsLoading(true);
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const response = await familyApi.familiesGet({});
-      // const response = await fetch('http://localhost:3000/families');
-      // if (!response.ok) {
-      //   throw new Error('response error');
-      // }
-      // const data = await response.json();
-      console.log(response);
-      setFamilies(response);
+      const familyResponse = await familyApi.familiesGet();
+      const incomeResponse = await incomeApi.incomesGet();
+      setFamilies(familyResponse);
+      setIncomes(incomeResponse);
+      console.log(incomeResponse);
+      setIsLoading(false);
     })();
   }, []);
 

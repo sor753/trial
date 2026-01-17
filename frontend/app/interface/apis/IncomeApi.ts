@@ -22,7 +22,7 @@ import {
     IncomeToJSON,
 } from '../models/index';
 
-export interface IncomPostRequest {
+export interface IncomesPostRequest {
     income?: Income;
 }
 
@@ -35,13 +35,13 @@ export class IncomeApi extends runtime.BaseAPI {
      * Get all incomes 
      * Get incomes
      */
-    async incomGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Income>>> {
+    async incomesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Income>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/incom`;
+        let urlPath = `/incomes`;
 
         const response = await this.request({
             path: urlPath,
@@ -57,8 +57,8 @@ export class IncomeApi extends runtime.BaseAPI {
      * Get all incomes 
      * Get incomes
      */
-    async incomGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Income>> {
-        const response = await this.incomGetRaw(initOverrides);
+    async incomesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Income>> {
+        const response = await this.incomesGetRaw(initOverrides);
         return await response.value();
     }
 
@@ -66,7 +66,7 @@ export class IncomeApi extends runtime.BaseAPI {
      * Add income\'s parameter 
      * Add income
      */
-    async incomPostRaw(requestParameters: IncomPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async incomesPostRaw(requestParameters: IncomesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -74,7 +74,7 @@ export class IncomeApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/incom`;
+        let urlPath = `/incomes`;
 
         const response = await this.request({
             path: urlPath,
@@ -91,8 +91,8 @@ export class IncomeApi extends runtime.BaseAPI {
      * Add income\'s parameter 
      * Add income
      */
-    async incomPost(requestParameters: IncomPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.incomPostRaw(requestParameters, initOverrides);
+    async incomesPost(requestParameters: IncomesPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.incomesPostRaw(requestParameters, initOverrides);
     }
 
 }

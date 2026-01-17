@@ -142,7 +142,7 @@ paths:
         "200":
           description: |
             Family edited
-  /incom:
+  /incomes:
     description: The income catalog
     get:
       summary: Get incomes

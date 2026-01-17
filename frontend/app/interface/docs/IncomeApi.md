@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**incomGet**](IncomeApi.md#incomget) | **GET** /incom | Get incomes |
-| [**incomPost**](IncomeApi.md#incompost) | **POST** /incom | Add income |
+| [**incomesGet**](IncomeApi.md#incomesget) | **GET** /incomes | Get incomes |
+| [**incomesPost**](IncomeApi.md#incomespost) | **POST** /incomes | Add income |
 
 
 
-## incomGet
+## incomesGet
 
-> Array&lt;Income&gt; incomGet()
+> Array&lt;Income&gt; incomesGet()
 
 Get incomes
 
@@ -24,14 +24,14 @@ import {
   Configuration,
   IncomeApi,
 } from '';
-import type { IncomGetRequest } from '';
+import type { IncomesGetRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
   const api = new IncomeApi();
 
   try {
-    const data = await api.incomGet();
+    const data = await api.incomesGet();
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -68,9 +68,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## incomPost
+## incomesPost
 
-> incomPost(income)
+> incomesPost(income)
 
 Add income
 
@@ -83,7 +83,7 @@ import {
   Configuration,
   IncomeApi,
 } from '';
-import type { IncomPostRequest } from '';
+import type { IncomesPostRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
@@ -92,10 +92,10 @@ async function example() {
   const body = {
     // Income | Income\'s information (optional)
     income: ...,
-  } satisfies IncomPostRequest;
+  } satisfies IncomesPostRequest;
 
   try {
-    const data = await api.incomPost(body);
+    const data = await api.incomesPost(body);
     console.log(data);
   } catch (error) {
     console.error(error);
