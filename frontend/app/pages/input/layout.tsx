@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
 import type { Route } from './+types/page';
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import {
   Configuration,
   FamilyApi,
@@ -23,6 +23,14 @@ import { apiConf } from '~/root';
 const familyApi = new FamilyApi(apiConf);
 const incomeApi = new IncomeApi(apiConf);
 
+export const FamilyInfoContext = createContext<
+  | {
+      families: Family[] | undefined;
+      incomes: Income[] | undefined;
+    }
+  | undefined
+>(undefined);
+
 const Layout = ({}: Route.ComponentProps) => {
   const [families, setFamilies] = useState<Family[]>();
   const [incomes, setIncomes] = useState<Income[]>();
@@ -43,8 +51,7 @@ const Layout = ({}: Route.ComponentProps) => {
 
   return (
     <div>
-      <p className="font-bold">Input</p>
-      {families && (
+      {/* {families && (
         <ul>
           {families.map((family) => (
             <li key={family.reference}>
@@ -60,8 +67,10 @@ const Layout = ({}: Route.ComponentProps) => {
             </li>
           ))}
         </ul>
-      )}
-      <Outlet />
+      )} */}
+      <FamilyInfoContext.Provider value={{ families, incomes }}>
+        <Outlet />
+      </FamilyInfoContext.Provider>
     </div>
   );
 };

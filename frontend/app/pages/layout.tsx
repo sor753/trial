@@ -3,7 +3,7 @@ import { Outlet } from 'react-router';
 const Layout = () => {
   return (
     <div>
-      <p className="font-bold">aaaaaaa</p>
+      <p className="font-bold">グローバルメニュー</p>
       <Outlet />
     </div>
   );
