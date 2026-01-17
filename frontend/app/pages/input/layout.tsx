@@ -1,13 +1,29 @@
 import { Outlet } from 'react-router';
 import type { Route } from './+types/page';
+import { useEffect } from 'react';
 
-export const clientLoader = async () => {
-  // Your loader logic here
-  return 'Layout';
-};
+// export const clientLoader = async () => {
+// await new Promise((resolve) => setTimeout(resolve, 1000));
+// const response = await fetch('http://localhost:3000/families');
+// if (!response.ok) {
+//   throw new Error('response error');
+// }
+// const data = await response.json();
+//   return data;
+// };
 
-const Layout = ({ loaderData }: Route.ComponentProps) => {
-  console.log(loaderData);
+const Layout = ({}: Route.ComponentProps) => {
+  useEffect(() => {
+    (async () => {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch('http://localhost:3000/families');
+      if (!response.ok) {
+        throw new Error('response error');
+      }
+      const data = await response.json();
+      console.log('data', data);
+    })();
+  }, []);
 
   return (
     <div>

@@ -7,14 +7,7 @@ export const meta = ({}: Route.MetaArgs) => {
   ];
 };
 
-export const clientLoader = async () => {
-  // Your loader logic here
-  return 'Client loader data';
-};
-
 const Page = ({ loaderData }: Route.ComponentProps) => {
-  console.log(loaderData);
-
   return <div>Input Page</div>;
 };
 
