@@ -10,15 +10,15 @@
       },
       "have": [
         {
-          "reference": "1112",
+          "reference": "2111",
           "name": "自動車"
         },
         {
-          "reference": "1113",
+          "reference": "2112",
           "name": "住宅"
         },
         {
-          "reference": "1114",
+          "reference": "2113",
           "name": "貯金"
         }
       ]
@@ -33,11 +33,11 @@
       },
       "have": [
         {
-          "reference": "1115",
+          "reference": "2115",
           "name": "自動車"
         },
         {
-          "reference": "1116",
+          "reference": "2116",
           "name": "貯金"
         }
       ]
@@ -82,17 +82,17 @@
       },
       "have": [
         {
-          "reference": "1117",
+          "reference": "2117",
           "name": "住宅"
         },
         {
-          "reference": "1118",
+          "reference": "2118",
           "name": "貯金"
         }
       ]
     },
     {
-      "reference": "1118",
+      "reference": "1117",
       "relationship": "spouse",
       "name": "田中美智子",
       "birthDate": "1960-11-12",
@@ -100,6 +100,25 @@
         "name": "専業主婦"
       },
       "have": []
+    }
+  ],
+  "incom": [
+    {
+      "reference": "3111",
+      "familyId": "1111",
+      "source": "給料",
+      "amount": 500000
+    },
+    {
+      "reference": "3112",
+      "source": "不動産収入",
+      "amount": 200000
+    },
+    {
+      "reference": "3113",
+      "familyId": "1112",
+      "source": "給料",
+      "amount": 300000
     }
   ]
 }

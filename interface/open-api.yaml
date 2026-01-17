@@ -53,6 +53,23 @@ components:
                 type: string
               name:
                 type: string
+    Income:
+      type: object
+      description: Income
+      required:
+        - reference
+        - familyId
+        - source
+        - amount
+      properties:
+        reference:
+          type: string
+        familyId:
+          type: string
+        source:
+          type: string
+        amount:
+          type: number
   parameters:
     ProductId:
       name: productId
@@ -127,3 +144,33 @@ paths:
       responses:
         "200":
           description: Product has been deleted
+  /incom:
+    description: The income catalog
+    get:
+      summary: Get incomes
+      description: |
+        Get all incomes
+      responses:
+        "200":
+          description: Income
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Array of Income
+                items:
+                  $ref: "#/components/schemas/Income"
+    post:
+      summary: Add income
+      description: |
+        Add income's parameter
+      requestBody:
+        description: Income's information
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Income"
+      responses:
+        "200":
+          description: |
+            Income added
