@@ -7,7 +7,7 @@ export const meta = ({}: Route.MetaArgs) => {
   ];
 };
 
-const Page = ({ loaderData }: Route.ComponentProps) => {
+const Page = () => {
   return <div>Input Page</div>;
 };
 
