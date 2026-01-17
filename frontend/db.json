@@ -1,0 +1,105 @@
+{
+  "families": [
+    {
+      "reference": "1111",
+      "relationship": "self",
+      "name": "田中太郎",
+      "birthDate": "1980-01-11",
+      "job": {
+        "name": "会社員"
+      },
+      "have": [
+        {
+          "reference": "1112",
+          "name": "自動車"
+        },
+        {
+          "reference": "1113",
+          "name": "住宅"
+        },
+        {
+          "reference": "1114",
+          "name": "貯金"
+        }
+      ]
+    },
+    {
+      "reference": "1112",
+      "relationship": "spouse",
+      "name": "田中花子",
+      "birthDate": "1985-05-20",
+      "job": {
+        "name": "看護師"
+      },
+      "have": [
+        {
+          "reference": "1115",
+          "name": "自動車"
+        },
+        {
+          "reference": "1116",
+          "name": "貯金"
+        }
+      ]
+    },
+    {
+      "reference": "1113",
+      "relationship": "child",
+      "name": "田中一郎",
+      "birthDate": "2010-09-15",
+      "job": {
+        "name": "学生"
+      },
+      "have": []
+    },
+    {
+      "reference": "1114",
+      "relationship": "child",
+      "name": "田中次郎",
+      "birthDate": "2012-12-01",
+      "job": {
+        "name": "学生"
+      },
+      "have": []
+    },
+    {
+      "reference": "1115",
+      "relationship": "child",
+      "name": "田中三郎",
+      "birthDate": "2015-03-22",
+      "job": {
+        "name": "幼稚園児"
+      },
+      "have": []
+    },
+    {
+      "reference": "1116",
+      "relationship": "relatives",
+      "name": "田中泰治",
+      "birthDate": "1955-07-30",
+      "job": {
+        "name": "会社員"
+      },
+      "have": [
+        {
+          "reference": "1117",
+          "name": "住宅"
+        },
+        {
+          "reference": "1118",
+          "name": "貯金"
+        }
+      ]
+    },
+    {
+      "reference": "1118",
+      "relationship": "spouse",
+      "name": "田中美智子",
+      "birthDate": "1960-11-12",
+      "job": {
+        "name": "専業主婦"
+      },
+      "have": []
+    }
+  ]
+}

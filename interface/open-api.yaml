@@ -1,0 +1,129 @@
+openapi: "3.0.0"
+info:
+  title: Shopping API
+  version: "1.0"
+components:
+  schemas:
+    Family:
+      type: object
+      description: A Family
+      required:
+        - reference
+        - relationship
+        - name
+        - birthDate
+      properties:
+        reference:
+          description: |
+            unique ID identifying
+            a family
+          type: string
+        relationship:
+          type: string
+          enum:
+            - self
+            - spouse
+            - child
+            - relatives
+          description: relationship to the head of family
+        name:
+          type: string
+        birthDate:
+          type: string
+          format: date
+        job:
+          type: object
+          description: Family's job
+          required:
+            - name
+          properties:
+            name:
+              type: string
+        have:
+          type: array
+          description: Array of possessions
+          items:
+            type: object
+            description: A possession
+            required:
+              - reference
+              - name
+            properties:
+              reference:
+                type: string
+              name:
+                type: string
+  parameters:
+    ProductId:
+      name: productId
+      in: path
+      required: true
+      description: product's reference
+      schema:
+        type: string
+paths:
+  /families:
+    description: The families catalog
+    get:
+      summary: Search families
+      description: |
+        Search families
+        using a free query parameter
+      parameters:
+        - name: free-query
+          description: |
+            A family's name, reference or
+            partial description
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Families matching free query
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Array of Family
+                items:
+                  $ref: "#/components/schemas/Family"
+    post:
+      summary: Add family
+      description: |
+        Add family's parameter
+      requestBody:
+        description: Family's information
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Family"
+      responses:
+        "200":
+          description: |
+            Family added
+    put:
+      summary: Add family
+      description: |
+        Add family's parameter
+      requestBody:
+        description: Family's information
+        content:
+          application/json:
+            schema:
+                type: array
+                description: Array of Family
+                items:
+                  $ref: "#/components/schemas/Family"
+      responses:
+        "200":
+          description: |
+            Family edited
+  /families/{familyId}:
+    parameters:
+      - $ref: "#/components/parameters/ProductId"
+    description: A family
+    delete:
+      summary: Delete a family
+      responses:
+        "200":
+          description: Product has been deleted
