@@ -12,6 +12,8 @@ components:
         - relationship
         - name
         - birthDate
+        - job
+        - have
       properties:
         reference:
           description: |
@@ -70,14 +72,6 @@ components:
           type: string
         amount:
           type: number
-  parameters:
-    ProductId:
-      name: productId
-      in: path
-      required: true
-      description: product's reference
-      schema:
-        type: string
 paths:
   /families:
     description: The families catalog
@@ -135,15 +129,6 @@ paths:
         "200":
           description: |
             Family edited
-  /families/{familyId}:
-    parameters:
-      - $ref: "#/components/parameters/ProductId"
-    description: A family
-    delete:
-      summary: Delete a family
-      responses:
-        "200":
-          description: Product has been deleted
   /incom:
     description: The income catalog
     get:
